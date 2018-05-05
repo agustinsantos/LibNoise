@@ -4,14 +4,13 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{5AFA0CC4-0CEF-4F8F-B287-AD13001A3693}</ProjectGuid>
+    <ProjectGuid>{B62DEB88-6F72-4402-9DA8-BCF220164403}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>ComplexPlanet</RootNamespace>
-    <AssemblyName>ComplexPlanet</AssemblyName>
-    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <RootNamespace>LibClimate</RootNamespace>
+    <AssemblyName>LibClimate</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -22,22 +21,20 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
-    <DefineConstants>TRACE;DEBUG</DefineConstants>
+    <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
-  <PropertyGroup />
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -45,25 +42,35 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ClimateSimulator.cs" />
-    <Compile Include="ClimateSimulator2.cs" />
-    <Compile Include="Palette.cs" />
+    <Compile Include="averages.cs" />
+    <Compile Include="climaconstants.cs" />
+    <Compile Include="co2cycle.cs" />
+    <Compile Include="Conversion.cs" />
+    <Compile Include="datastructure.cs" />
+    <Compile Include="energyfunctions.cs" />
+    <Compile Include="flux.cs" />
+    <Compile Include="Grid.cs" />
+    <Compile Include="IGrid.cs" />
+    <Compile Include="initmodel.cs" />
+    <Compile Include="mainloop.cs" />
+    <Compile Include="oceans.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="riverandlakes.cs" />
+    <Compile Include="statechanges.cs" />
+    <Compile Include="ThreeDplots.cs" />
+    <Compile Include="watercycle.cs" />
+    <Compile Include="World.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\LibNoise\LibNoise.csproj">
-      <Project>{987e8b87-a9a5-4472-8ea2-326dcf669d8e}</Project>
-      <Name>LibNoise</Name>
-    </ProjectReference>
+    <Content Include="config\planet-elevation.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="config\planet-population-1990.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Readme.txt" />
   </ItemGroup>
-  <ItemGroup>
-    <None Include="app.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="WWF_BiomeMap.png" />
-  </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

@@ -117,7 +117,7 @@ namespace ComplexPlanet
     /// </summary>
     class Program
     {
-        private static string worldName = "Earth";
+        private static string worldName = "Philippe";
         private static String dirname;
 
         static void Main(string[] args)
